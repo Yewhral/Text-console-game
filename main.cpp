@@ -1,6 +1,7 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include "monster.h"
 
 using std::cout;
 using std::cin;
@@ -37,29 +38,42 @@ int main(int argc, char** argv) {
 	int playerMaxDmg=0;
 	int playerHealth=0;
 	int playerGender=0;
-	std::string playerName;
-	int pause=0;
+	string playerName;
 
-	do{
 	
+	int pause=0;				//for pausing program at the end
+
+	do{							//main program loop
+		
 	menuText();
 	cin>>mainMenu;
 	switch(mainMenu){
 		case '1':
-			//game logic goes here
-			playerNameChoice();
+			//game flow goes here
+			playerNameChoice();	
 				cin>>playerName;
 				cout<<endl;
 			playerGenderChoice();
+				do{
 				cin>>playerGender;
-				cout<<endl;
+					cout<<endl;
+					if(playerGender!=1 && playerGender!=2)cout<<"There are only 2 genders"<<endl;
+					}while(playerGender!=1 && playerGender!=2);
 			playerClassChoice();
 				cin>>playerClass;
 			playerClassStats(playerName, playerClass, playerMinDmg, playerMaxDmg, playerHealth);
-				textIntro();
-				act(1);			//using function for displaying act number
-				textAct1(playerName, playerGender);
+			textIntro();
+			act(1);			//using function for displaying act number
+			textAct1(playerName, playerGender);
 			displayStats(playerName, playerMinDmg, playerMaxDmg, playerHealth);
+			
+			monster thug;
+			thug.hp=10;
+			thug.minDmg=10;
+			thug.maxDmg=40;
+			thug.showStats();
+			thug.shout();
+			
 			cin>>pause;
 
 			break;

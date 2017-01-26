@@ -4,6 +4,7 @@
 
 using std::cout;
 using std::endl;
+using std::string;
 
 
 // displaying menu
@@ -32,6 +33,7 @@ void menuExit(){
 void playerNameChoice(){
 	cout<<"Please tell me your name: ";
 }
+//Player gender choice
 void playerGenderChoice(){
 	cout<<"Are you a man or a woman?"<<endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_BLUE|FOREGROUND_INTENSITY);
@@ -82,7 +84,7 @@ SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED|FOREGROU
 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),FOREGROUND_RED|FOREGROUND_GREEN|FOREGROUND_BLUE);
 }
 // Display stats
-void displayStats(std::string playerName, int playerMinDmg, int playerMaxDmg, int playerHealth){
+void displayStats(string playerName, int playerMinDmg, int playerMaxDmg, int playerHealth){
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),FOREGROUND_GREEN|FOREGROUND_BLUE|FOREGROUND_INTENSITY);
 	cout<<playerName<<"'s";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),FOREGROUND_RED|FOREGROUND_GREEN|FOREGROUND_BLUE);

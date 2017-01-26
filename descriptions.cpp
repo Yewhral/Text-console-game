@@ -35,12 +35,13 @@ void textAct1(string playerName, bool playerGender){
 	Sleep(x/2);
 	cout<<"..."<<endl;
 	Sleep(x/2);
-	cout<<"Ceregine - the capital of Landburn is a very lively place."<<endl;
-	cout<<"There is always a job for treasure hunters and monster slayers there."<<endl;
+	cout<<"Ceregine - the capital of Landburn is a very lively place.";
+	Sleep(x/2);
+	cout<<"There is always job for treasure hunters and monster slayers there."<<endl;
 	Sleep(x+x/2);
 	cout<<"Always..."<<endl;
 	Sleep(x);
-	cout<<"Except for today... When you wanted to start your career with a high note."<<endl;
+	cout<<"Except for today... When you wanted to start your career."<<endl;
 	Sleep(x);
 	cout<<"You have spent last 11 hours looking for someone who could hire you."<<endl;
 	Sleep(x);
