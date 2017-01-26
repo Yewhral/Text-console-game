@@ -32,6 +32,7 @@ int main(int argc, char** argv) {
 	setFontSize(18);			//text size display size
 	char mainMenu;				//whole program loop configuration
 	int mainProgramLoop=2;
+	srand(time(NULL));			//randomness by time
 	
 	int playerClass=0;			//player statistics
 	int playerMinDmg=0;
@@ -49,6 +50,7 @@ int main(int argc, char** argv) {
 	cin>>mainMenu;
 	switch(mainMenu){
 		case '1':
+			{
 			//game flow goes here
 			playerNameChoice();	
 				cin>>playerName;
@@ -63,21 +65,16 @@ int main(int argc, char** argv) {
 				cin>>playerClass;
 			playerClassStats(playerName, playerClass, playerMinDmg, playerMaxDmg, playerHealth);
 			textIntro();
-			act(1);			//using function for displaying act number
+			act(1);			// using function for displaying act number
 			textAct1(playerName, playerGender);
 			displayStats(playerName, playerMinDmg, playerMaxDmg, playerHealth);
 			
-			monster thug;
-			thug.hp=10;
-			thug.minDmg=10;
-			thug.maxDmg=40;
-			thug.showStats();
-			thug.shout();
-			
+			Monster thug("thug",52,53,50); // object from monster class
+			thug.showStats(); 	// display stats from class
 			cin>>pause;
 
 			break;
-			
+	}
 		case '2':
 			authorInfo();
 			break;

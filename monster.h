@@ -1,20 +1,29 @@
 #ifndef MONSTER_H
 #define MONSTER_H
+#include <iostream>
 
-class monster
-{
-//	private:
-//	protected:
-	public:
-		int stats; // hm?
-		int currentHp; //?
-		int hp;
-		int minDmg;
-		int maxDmg;
+
+using std::string;
+using std::cout;
+using std::endl;
+
+class Monster{
+   private:
+	int hp;
+	int minDmg;
+	int maxDmg;
+	string name;
+	
+   public:
+	Monster(string,int,int,int);
+	~Monster();
+	void showStats();
 		
-		void showStats();
-		void shout(); //yell;
-
+	
 };
+
+		
+
+
 
 #endif
