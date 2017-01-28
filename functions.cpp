@@ -33,7 +33,7 @@ void menuExit(){
 void playerNameChoice(){
 	cout<<"Please tell me your name: ";
 }
-//Player gender choice
+//Player gender choice text
 void playerGenderChoice(){
 	cout<<"Are you a man or a woman?"<<endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_BLUE|FOREGROUND_INTENSITY);
@@ -61,7 +61,6 @@ SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED|FOREGROU
 		playerMinDmg=10;
 		playerMaxDmg=20;
 		playerHealth=100;
-	
 	}
 	else if(playerClass==2){
 		cout<<playerName<<" became a swift ranger!"<<endl<<endl;
@@ -86,7 +85,7 @@ SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),FOREGROUND_RED|FOREGROUN
 // Display stats
 void displayStats(string playerName, int playerMinDmg, int playerMaxDmg, int playerHealth){
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),FOREGROUND_GREEN|FOREGROUND_BLUE|FOREGROUND_INTENSITY);
-	cout<<playerName<<"'s";
+	cout<<endl<<playerName<<"'s";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),FOREGROUND_RED|FOREGROUND_GREEN|FOREGROUND_BLUE);
 	cout<<" stats: Health: ";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),FOREGROUND_RED|FOREGROUND_INTENSITY);
@@ -97,6 +96,24 @@ void displayStats(string playerName, int playerMinDmg, int playerMaxDmg, int pla
 	cout<<playerMinDmg<<"-"<<playerMaxDmg<<endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),FOREGROUND_RED|FOREGROUND_GREEN|FOREGROUND_BLUE);
 }
+
+void gameEnd(){
+	cout<<"===GAME END==="<<endl<<endl;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ACT NUMBER DISPLAYER
 void act(int actNumber){
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_RED);
@@ -109,7 +126,6 @@ void act(int actNumber){
 	cout<<" =+=+=+="<<endl<<endl;
 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED|FOREGROUND_GREEN|FOREGROUND_BLUE);
 }
-
 // PREVENTS FROM CONSOLE FONT BEING TOO LOW
 void setFontSize(int fontSize)
 {

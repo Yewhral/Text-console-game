@@ -18,7 +18,12 @@ class Monster{
 	Monster(string,int,int,int);
 	~Monster();
 	void showStats();
-		
+	int monsterHp;
+	int mobHp();
+	int mobMinDmg();
+	int mobMaxDmg();
+	int calculateHp(int &monsterHp, int,int);
+	int calculateDmg(int minDmg, int MaxDmg);	
 	
 };
 

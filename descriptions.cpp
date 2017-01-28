@@ -7,8 +7,8 @@ using std::endl;
 using std::string;
 
 void textIntro(){
-//	int x=2000;
-	int x=0;
+	int x=2000;
+//	int x=0;
 	cout<<"*This day was fun.* You thought while falling asleep on your bed."<<endl;
 	Sleep(x);
 	cout<<"Today you have finally got your SODER licence."<<endl;
@@ -25,9 +25,9 @@ void textIntro(){
 	Sleep(x);
 }
 
-void textAct1(string playerName, bool playerGender){
-	//int x=2000;
-	int x=0;
+void textAct1(string playerName, int playerGender){
+	int x=2000;
+//	int x=0;
 	Sleep(x);
 	cout<<"Ehh...";
 	Sleep(x/2);
@@ -35,7 +35,7 @@ void textAct1(string playerName, bool playerGender){
 	Sleep(x/2);
 	cout<<"..."<<endl;
 	Sleep(x/2);
-	cout<<"Ceregine - the capital of Landburn is a very lively place.";
+	cout<<"Ceregine - the capital of Landburn is a very lively place."<<endl;
 	Sleep(x/2);
 	cout<<"There is always job for treasure hunters and monster slayers there."<<endl;
 	Sleep(x+x/2);
@@ -50,11 +50,15 @@ void textAct1(string playerName, bool playerGender){
 	cout<<"- HEEEEYYY!!!!!!"<<endl;
 	Sleep(x/2);
 	cout<<"A young ";
-		if(playerGender=1){
-			cout<<"woman runs into you."<<endl<<"She ";
+		if(playerGender==1){
+			cout<<"woman runs into you.";
+			Sleep(x/2);
+			cout<<endl<<"She ";
 		}
 		else{
-			cout<<"man runs into you."<<endl<<"He ";
+			cout<<"man runs into you.";
+			Sleep(x/2);
+			cout<<endl<<"He ";
 		}
 	cout<<"is screaming"<<endl<<"- "<<playerName<< " you have to help me!"<<endl;
 	Sleep(x);
@@ -70,6 +74,9 @@ void textAct1(string playerName, bool playerGender){
 	Sleep(x);
 	cout<<"- YARRR!"<<endl;
 	Sleep(x);
-	cout<<"He's getting closer. You decide to fight for your new..friend?"<<endl<<endl;
-
+	cout<<"He's getting closer. You decide to fight for your new..friend?"<<endl;
+}
+void fightMenuText(){
+	cout<<"   1 - Attack"<<endl;
+	cout<<"   2 - Heal"<<endl;
 }
