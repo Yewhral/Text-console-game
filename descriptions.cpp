@@ -7,8 +7,8 @@ using std::endl;
 using std::string;
 
 void textIntro(){
-	int x=2000;
-//	int x=0;
+//	int x=2000;
+	int x=0;
 	cout<<"*This day was fun.* You thought while falling asleep on your bed."<<endl;
 	Sleep(x);
 	cout<<"Today you have finally got your SODER licence."<<endl;
@@ -26,8 +26,8 @@ void textIntro(){
 }
 
 void textAct1(string playerName, int playerGender){
-	int x=2000;
-//	int x=0;
+//	int x=2500;
+	int x=0;
 	Sleep(x);
 	cout<<"Ehh...";
 	Sleep(x/2);
@@ -76,7 +76,50 @@ void textAct1(string playerName, int playerGender){
 	Sleep(x);
 	cout<<"He's getting closer. You decide to fight for your new..friend?"<<endl;
 }
-void fightMenuText(){
-	cout<<"   1 - Attack"<<endl;
-	cout<<"   2 - Heal"<<endl;
+void textAct11(int playerGender, string playerName){
+	//	int x=4000;
+		int x=0;
+		cout<<"- Woah, thanks!"<<endl<<"The person who got saved hugs you. ";
+		Sleep(x);
+			if(playerGender==1){
+				cout<<"She ";
+			}
+			else{
+				cout<<"He ";
+			}
+		cout<<"looks around and takes your hand."<<endl;
+		Sleep(x/2);
+		cout<<"- Come with me!"<<endl;
+		Sleep(x);
+		cout<<"You get dragged to an abandoned building."<<endl<<"It's almost crumbling and you don't feel safe here..."<<endl;
+		Sleep(x*2);
+		cout<<"What's going on in the first place?"<<endl;
+		Sleep(x);
+		cout<<"- Who are you? How do you know my name and where is my payment?"<<endl;
+		Sleep(x);
+		cout<<"You asked. And you got totally ignored."<<endl;
+		Sleep(x);
+		cout<<"- I must heal your wounds. You got hurt because of me."<<endl;
+		Sleep(x);
+		cout<<"You hear the sadness in ";
+			if(playerGender==1){
+			cout<<"her voice. But she seems excited."<<endl;
+			Sleep(x);
+			cout<<"She ";
+		
+			}
+			else{
+				cout<<"his voice. But he seems excided."<<endl;
+				Sleep(x);
+				cout<<"He ";
+			}
+		cout<<"murmurs something. You start feeling warmth flowing through your body."<<endl;
+		cout<<"- I'm so glad I found you "<<playerName<<"!"<<endl;
+		Sleep(x/2);
+		cout<<"- I need you to help me. I was watching you for a long time now."<<endl;
+		Sleep(x/2);
+		cout<<"- Your skills are amazing!"<<endl<<endl;
+		//some info about story and intro to a spider attack
+		 
+		
 }

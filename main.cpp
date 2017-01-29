@@ -1,6 +1,7 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <string>
 #include "monster.h"
 
 using std::cout;
@@ -18,7 +19,7 @@ void programError();
 void playerClassChoice();
 void playerNameChoice();
 void playerGenderChoice();
-void playerClassStats(string playerName, int playerClass, int &playerMinDmg, int &playerMaxDmg, int &playerHealth);
+void playerClassStats(string playerName, int playerClass, int &playerMinDmg, int &playerMaxDmg, int &playerHealth, int &playerMaxHealth);
 void displayStats(string playerName, int playerMinDmg, int playerMaxDmg, int playerHealth);
 void textIntro();
 void act(int actNumber);
@@ -26,6 +27,8 @@ void textAct1(string playerName, int playerGender);
 void displayStats(std::string playerName, int playerMinDmg, int playerMaxDmg, int playerHealth);
 void fightMenuText();
 void gameEnd();
+void heal(int playerClass);
+void textAct11(int playerGender, string playerName);
 
 
 //actual program
@@ -44,6 +47,7 @@ int main(int argc, char** argv) {
 	int playerHealth=0;
 	int playerGender=0;
 	int playerHeal=0;
+	int playerMaxHealth=0;
 	string playerName;
 
 	
@@ -56,7 +60,8 @@ int main(int argc, char** argv) {
 		case '1':
 			{
 			playerNameChoice();	
-				cin>>playerName;
+				cin.ignore(); 
+				getline(cin,playerName);
 				cout<<endl;
 			playerGenderChoice();
 			do{
@@ -66,46 +71,43 @@ int main(int argc, char** argv) {
 			}while(playerGender!=1 && playerGender!=2);
 			playerClassChoice();
 				cin>>playerClass;
-			playerClassStats(playerName, playerClass, playerMinDmg, playerMaxDmg, playerHealth);
+			playerClassStats(playerName, playerClass, playerMinDmg, playerMaxDmg, playerHealth, playerMaxHealth);
 			textIntro();
 			act(1);			// using function for displaying act number
 			textAct1(playerName, playerGender);
 		
 			//FIGHTING BLOCK
-			Monster thug("thug",5,20,50); // object from monster class
+			Monster thug("thug",1,20,50); // object from monster class
 			thug.mobHp();		//so this sets enemy hp as an easily accessible variable
 			displayStats(playerName, playerMinDmg, playerMaxDmg, playerHealth);
 			thug.showStats(); 
-			do{
-			//	displayStats(playerName, playerMinDmg, playerMaxDmg, playerHealth);
-			//	thug.showStats(); 
+			do{ 
 				fightMenuText();
 				cin>>fightMenuChar;
 				switch(fightMenuChar){
+					
 						case '1':{
-								//displayStats(playerName, playerMinDmg, playerMaxDmg, playerHealth);
-								//thug.showStats(); 	// display stats from class 	//if(thug.mobHp()<0)  I MANAGED TO DO COMPARISION OF HP WITH SOMETHING ELSE OMG OMG OMG :D
 								thug.calculateHp(thug.monsterHp,playerMinDmg,playerMaxDmg);
-								if(thug.monsterHp<0){
-									cout<<playerName<<" defeated his enemy!"<<endl; 
+								if(thug.monsterHp<=0){
+									cout<<playerName<<" defeated his enemy!"<<endl<<endl; 
 									break;}
 								else{
 								playerHealth-=thug.calculateDmg(thug.mobMinDmg(),thug.mobMaxDmg());
-								if(playerHealth<0){
+								if(playerHealth<=0){
 									cout<<"You got killed by your opponent...";
-									gameEnd();
 									break;}
 								displayStats(playerName, playerMinDmg, playerMaxDmg, playerHealth);
 								thug.showStats(); 
 						}
-								
 								break;
 								}
+								
 						case '2':{
 								playerHeal=rand()%5+10;
-								playerHealth+=playerHeal; // change for 10% of max hp later
-								if(playerHealth>100){
-									playerHealth=100;
+								playerHealth+=playerHeal; 
+								heal(playerClass);
+								if(playerHealth>playerMaxHealth){
+									playerHealth=playerMaxHealth;
 									cout<<"You got healed up to full health!"<<endl;
 									}
 								else{
@@ -116,20 +118,74 @@ int main(int argc, char** argv) {
 								thug.showStats(); 
 								break;
 							}
+							
 						default:{
-							cout<<"try again";
+							cout<<"Try again"<<endl;
 							break;
 						}
 				}
 			}while(thug.monsterHp>0 && playerHealth>0);
-	
-/*			while(thug.monsterHp>0 && playerHealth>0){
-			playerHealth-=thug.calculateDmg(thug.mobMinDmg(),thug.mobMaxDmg());
-			thug.calculateHp(thug.monsterHp,playerMinDmg,playerMaxDmg);
-			thug.showStats();
-		}
-		*/
-		
+			if(playerHealth<=0){
+				gameEnd(); 
+				break;
+			}
+			textAct11(playerGender, playerName);
+						
+			Monster spider("Spider",1,5,30); // object from monster class
+			spider.mobHp();		//so this sets enemy hp as an easily accessible variable
+			displayStats(playerName, playerMinDmg, playerMaxDmg, playerHealth);
+			spider.showStats(); 
+			do{ 
+				fightMenuText();
+				cin>>fightMenuChar;
+				switch(fightMenuChar){
+					
+						case '1':{
+								spider.calculateHp(spider.monsterHp,playerMinDmg,playerMaxDmg);
+								if(spider.monsterHp<=0){
+									cout<<playerName<<" defeated his enemy!"<<endl<<endl; 
+									break;}
+								else{
+								playerHealth-=spider.calculateDmg(spider.mobMinDmg(),spider.mobMaxDmg());
+								if(playerHealth<=0){
+									cout<<"You got killed by your opponent...";
+									break;}
+								displayStats(playerName, playerMinDmg, playerMaxDmg, playerHealth);
+								spider.showStats(); 
+						}
+								break;
+								}
+								
+						case '2':{
+								playerHeal=rand()%5+10;
+								playerHealth+=playerHeal; 
+								heal(playerClass);
+								if(playerHealth>playerMaxHealth){
+									playerHealth=playerMaxHealth;
+									cout<<"You got healed up to full health!"<<endl;
+									}
+								else{
+									cout<<"You got healed for: "<<playerHeal<<endl;
+								}
+								playerHealth-=spider.calculateDmg(spider.mobMinDmg(),spider.mobMaxDmg());
+								displayStats(playerName, playerMinDmg, playerMaxDmg, playerHealth);
+								spider.showStats(); 
+								break;
+							}
+							
+						default:{
+							cout<<"Try again"<<endl;
+							break;
+						}
+				}
+			}while(spider.monsterHp>0 && playerHealth>0);
+			if(playerHealth<=0){
+				gameEnd(); 
+				break;
+			}
+			
+			
+			
 			cin>>pause;
 
 			break;

@@ -9,7 +9,7 @@ using std::string;
 
 // displaying menu
 void menuText(){
-	cout<<"===[][*] MAIN MENU [*][]==="<<endl<<endl;
+	cout<<"===[]==[ MAIN MENU ]==[]==="<<endl<<endl;
 	cout.width(25);
 	cout<<std::right<<"1 - Start a new game"<<endl;
 	cout.width(25);
@@ -54,31 +54,35 @@ void playerClassChoice(){
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),FOREGROUND_RED|FOREGROUND_GREEN|FOREGROUND_BLUE);
 }
 //Player class mechanics
-void playerClassStats(std::string playerName, int playerClass,int &playerMinDmg, int &playerMaxDmg, int &playerHealth){	// passing value by reference 
-SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED|FOREGROUND_GREEN);
+void playerClassStats(std::string playerName, int playerClass,int &playerMinDmg, int &playerMaxDmg, int &playerHealth, int &playerMaxHealth){	// passing value by reference 
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED|FOREGROUND_GREEN);
 	if(playerClass==1){
 		cout<<playerName<<" became a strong warrior!"<<endl<<endl;
 		playerMinDmg=10;
 		playerMaxDmg=20;
 		playerHealth=100;
+		playerMaxHealth=100;
 	}
 	else if(playerClass==2){
 		cout<<playerName<<" became a swift ranger!"<<endl<<endl;
 		playerMinDmg=5;
 		playerMaxDmg=30;
 		playerHealth=80;
+		playerMaxHealth=80;
 	}
 	else if(playerClass==3){
 		cout<<playerName<<" became a crazy mage!"<<endl<<endl;
 		playerMinDmg=0;
 		playerMaxDmg=50;
 		playerHealth=60;
+		playerMaxHealth=60;
 	}
 	else{
-		cout<<"you are a peasant. Good luck."<<endl<<endl;
+		cout<<"You are a peasant. Good luck."<<endl<<endl;
 		playerMinDmg=0;
 		playerMaxDmg=5;
 		playerHealth=10;
+		playerMaxHealth=10;
 	}
 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),FOREGROUND_RED|FOREGROUND_GREEN|FOREGROUND_BLUE);
 }
@@ -96,22 +100,26 @@ void displayStats(string playerName, int playerMinDmg, int playerMaxDmg, int pla
 	cout<<playerMinDmg<<"-"<<playerMaxDmg<<endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),FOREGROUND_RED|FOREGROUND_GREEN|FOREGROUND_BLUE);
 }
-
 void gameEnd(){
-	cout<<"===GAME END==="<<endl<<endl;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED|FOREGROUND_GREEN);
+	cout<<endl<<endl<<"==[]==[ GAME END ]==[]=="<<endl<<endl;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),FOREGROUND_RED|FOREGROUND_GREEN|FOREGROUND_BLUE);
 }
-
-
-
-
-
-
-
-
-
-
-
-
+void fightMenuText(){
+	cout<<"   1 - Attack"<<endl;
+	cout<<"   2 - Heal"<<endl;
+}
+void heal(int playerClass){
+	if (playerClass==1){
+		cout<<"You drink a potion"<<endl;
+	}
+	else if(playerClass==2){
+		cout<<"You heal your wounds with forest leafes"<<endl;
+	}
+	else{
+		cout<<"You cast a healing spell"<<endl;
+	}
+}
 
 
 // ACT NUMBER DISPLAYER
