@@ -7,8 +7,8 @@ using std::endl;
 using std::string;
 
 void textIntro(){
-//	int x=2000;
-	int x=0;
+	int x=2000;
+//	int x=0;
 	cout<<"*This day was fun.* You thought while falling asleep on your bed."<<endl;
 	Sleep(x);
 	cout<<"Today you have finally got your SODER licence."<<endl;
@@ -26,8 +26,8 @@ void textIntro(){
 }
 
 void textAct1(string playerName, int playerGender){
-//	int x=2500;
-	int x=0;
+	int x=2500;
+//	int x=0;
 	Sleep(x);
 	cout<<"Ehh...";
 	Sleep(x/2);
@@ -77,8 +77,8 @@ void textAct1(string playerName, int playerGender){
 	cout<<"He's getting closer. You decide to fight for your new..friend?"<<endl;
 }
 void textAct11(int playerGender, string playerName){
-	//	int x=4000;
-		int x=0;
+		int x=3500;
+	//	int x=0;
 		cout<<"- Woah, thanks!"<<endl<<"The person who got saved hugs you. ";
 		Sleep(x);
 			if(playerGender==1){
@@ -106,7 +106,6 @@ void textAct11(int playerGender, string playerName){
 			cout<<"her voice. But she seems excited."<<endl;
 			Sleep(x);
 			cout<<"She ";
-		
 			}
 			else{
 				cout<<"his voice. But he seems excided."<<endl;
@@ -114,11 +113,24 @@ void textAct11(int playerGender, string playerName){
 				cout<<"He ";
 			}
 		cout<<"murmurs something. You start feeling warmth flowing through your body."<<endl;
+		cout<<"Your wounds are now healed."<<endl;
+		Sleep(x);
 		cout<<"- I'm so glad I found you "<<playerName<<"!"<<endl;
 		Sleep(x/2);
 		cout<<"- I need you to help me. I was watching you for a long time now."<<endl;
 		Sleep(x/2);
-		cout<<"- Your skills are amazing!"<<endl<<endl;
+		cout<<"- Your skills are amazing!"<<endl;
+		Sleep(x/2);
+		cout<<"You don't really get what's going on, but you heard some noice nearby."<<endl;
+		Sleep(x);
+		cout<<"After taking a look around you notice something big crawling on the floor."<<endl;
+		cout<<"You push the ";
+			if(playerGender==1){cout<<"girl ";}
+			else{cout<<"boy ";}
+		cout<<"away ";
+		Sleep(x/2);
+		cout<<"and see a hungry spider attacking you!"<<endl;
+		Sleep(x/2);	
 		//some info about story and intro to a spider attack
 		 
 		

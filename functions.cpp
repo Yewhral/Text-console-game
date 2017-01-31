@@ -144,6 +144,5 @@ void setFontSize(int fontSize)
     wcscpy(info.FaceName, L"Lucida Console");
     SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE),TRUE,&info);
 }
-
-
+	
 	

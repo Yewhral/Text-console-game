@@ -31,6 +31,7 @@ void heal(int playerClass);
 void textAct11(int playerGender, string playerName);
 
 
+
 //actual program
 
 int main(int argc, char** argv) {
@@ -130,7 +131,7 @@ int main(int argc, char** argv) {
 				break;
 			}
 			textAct11(playerGender, playerName);
-						
+					
 			Monster spider("Spider",1,5,30); // object from monster class
 			spider.mobHp();		//so this sets enemy hp as an easily accessible variable
 			displayStats(playerName, playerMinDmg, playerMaxDmg, playerHealth);
@@ -184,7 +185,7 @@ int main(int argc, char** argv) {
 				break;
 			}
 			
-			
+			cout<<"THAT'S ALL FOR NOW"<<endl;
 			
 			cin>>pause;
 
