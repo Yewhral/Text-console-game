@@ -130,6 +130,8 @@ int main(int argc, char** argv) {
 				gameEnd(); 
 				break;
 			}
+	
+
 			textAct11(playerGender, playerName);
 					
 			Monster spider("Spider",1,5,30); // object from monster class

@@ -7,8 +7,8 @@ using std::endl;
 using std::string;
 
 void textIntro(){
-	int x=2000;
-//	int x=0;
+//	int x=2000;
+	int x=0;
 	cout<<"*This day was fun.* You thought while falling asleep on your bed."<<endl;
 	Sleep(x);
 	cout<<"Today you have finally got your SODER licence."<<endl;
@@ -26,8 +26,8 @@ void textIntro(){
 }
 
 void textAct1(string playerName, int playerGender){
-	int x=2500;
-//	int x=0;
+//	int x=2500;
+	int x=0;
 	Sleep(x);
 	cout<<"Ehh...";
 	Sleep(x/2);
@@ -77,8 +77,8 @@ void textAct1(string playerName, int playerGender){
 	cout<<"He's getting closer. You decide to fight for your new..friend?"<<endl;
 }
 void textAct11(int playerGender, string playerName){
-		int x=3500;
-	//	int x=0;
+	//	int x=3500;
+		int x=0;
 		cout<<"- Woah, thanks!"<<endl<<"The person who got saved hugs you. ";
 		Sleep(x);
 			if(playerGender==1){

@@ -24,9 +24,6 @@ class Monster{
 	int mobMaxDmg();
 	int calculateHp(int &monsterHp, int,int);
 	int calculateDmg(int minDmg, int MaxDmg);	
-	
-
-	
 };
 
 		
